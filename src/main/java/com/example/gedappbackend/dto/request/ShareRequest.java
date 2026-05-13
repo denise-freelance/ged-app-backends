@@ -1,0 +1,25 @@
+package com.example.gedappbackend.dto.request;
+
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.UUID;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class ShareRequest {
+    @NotNull(message = "Document ID is required")
+    private UUID documentId;
+
+    private List<UUID> userIds;
+    private List<UUID> groupIds;
+    private String permissionLevel;
+    private LocalDateTime expiresAt;
+}
